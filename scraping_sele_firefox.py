@@ -24,6 +24,6 @@ while 1:
         
     except:
         print(L)
-        driver.close()
+        driver.quit()
 
 
