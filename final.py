@@ -1,0 +1,23 @@
+#first attempt  clicking button then looping the elements
+import undetected_chromedriver as uc
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+
+L=[]
+
+
+# Specify the path to the geckodriver executable
+#service = Service(executable_path='/bin/geckodriver')
+driver = uc.Chrome()
+# Open a webpage
+driver.get("http://quotes.toscrape.com/")
+tmpl=[x.text for x  in driver.find_elements(By.CLASS_NAME,"quote")]
+L.append(tmpl)
+btn=driver.find_element(By.CLASS_NAME,'next').find_element(By.TAG_NAME,'a')
+btn.click()
+tmp=[x.text for x  in driver.find_elements(By.CLASS_NAME,"quote")]
+
+print(tmp)
+
+driver.close()
