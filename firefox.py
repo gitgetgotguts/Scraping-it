@@ -18,3 +18,15 @@ while 1:
         print(L)
         driver.quit()
         break
+# cleaning data: quotes=[{text:'',author:'',tag:()},]
+quotes=[]
+for i in L:
+    for j in i:
+        tempL=j.split('\n')
+        if len(tempL)!=3:
+            templ.append(None)
+        print(tempL)
+        print({'quote':tempL[0],'author':' '.join(tempL[1].split()[1:-1]),'tags':tuple(tempL[2].split()[1:])})
+        
+        quotes.append({'quote':tempL[0],'author':' '.join(tempL[1].split()[1:-1]),'tags':tuple(tempL[2].split()[1:])})
+
