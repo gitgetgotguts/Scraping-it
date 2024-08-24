@@ -24,9 +24,23 @@ for i in L:
     for j in i:
         tempL=j.split('\n')
         if len(tempL)!=3:
-            templ.append(None)
-        print(tempL)
-        print({'quote':tempL[0],'author':' '.join(tempL[1].split()[1:-1]),'tags':tuple(tempL[2].split()[1:])})
+            tempL.append('Tags: None')
+        # print(tempL)
+        # print({'quote':tempL[0],'author':' '.join(tempL[1].split()[1:-1]),'tags':tuple(tempL[2].split()[1:])})
         
         quotes.append({'quote':tempL[0],'author':' '.join(tempL[1].split()[1:-1]),'tags':tuple(tempL[2].split()[1:])})
 
+# f=open('quotes.txt','w')
+# f.write(L)
+# f.close()
+
+
+import sys
+ 
+# Save the original stdout
+original_stdout = sys.stdout
+ 
+# Redirect stdout to a file
+with open('output.txt', 'w') as f:
+    sys.stdout = f
+    print(quotes)
